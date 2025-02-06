@@ -1,32 +1,89 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+void move_bispo(void);
+void move_torre(void);
+void move_rainha(void);
 
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    // Variavel para as opções do switch
+    int menu = 3;
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    // Printf com o menu do jogo
+    printf("***Escolha uma peça para se mover!***\n1 - Bispo\n2 - Torre\n3 - Rainha\n");
+    scanf("%d", &menu);
+    printf("\n");
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    switch (menu)
+    {
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    //Bispo
+    case 1:   
+        
+        move_bispo();
+        break;
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    // Torre
+    case 2:
+        
+        move_torre();
+        break;
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // Rainha
+    case 3:
+        
+        move_rainha();
+        break;
+    
+    // Default com print de opção inválida
+    default:
 
+        printf("Opção inválida!\n\n");
+        break;
+    }
+  
     return 0;
+}
+
+// Função com loop while para o bispo, iniciando com n movimentos e tendo decremento até zerar o numero de movimentos.
+void move_bispo() {
+
+    int bispo = 5;
+    printf("**O bispo se moveu**\n");
+    while (bispo > 0)
+    {
+        printf("Cima\n");
+        printf("Direita\n");
+        bispo--;
+    }
+    printf("\n");
+
+}
+
+// Função com loop while para a torre, iniciando com n movimentos e tendo decremento até zerar o numero de movimentos.
+void move_torre() {
+
+    int torre = 5;
+    printf("**A torre se moveu**\n\n");
+    while (torre > 0)
+    {
+        printf("Direita\n");
+        torre--;
+    }
+    printf("\n");
+
+}
+
+// Função com loop while para a rainha, iniciando com n movimentos e tendo decremento até zerar o numero de movimentos.
+void move_rainha() {
+
+    int rainha = 8;
+    printf("**A rainha se moveu**\n\n");
+    while (rainha > 0)
+    {
+        printf("Esquerda\n");
+        rainha--;
+    }
+    printf("\n");
+
 }
