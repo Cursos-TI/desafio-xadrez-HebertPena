@@ -1,12 +1,13 @@
 #include <stdio.h>
 
-void move_bispo(void);
-void move_torre(void);
-void move_rainha(void);
-void move_cavalo(void);
+void move_bispo(int bispo);
+void move_torre(int torre);
+void move_rainha(int rainha);
+void move_cavalo(int cavalo);
 
 int main() {
 
+    int bispo = 5, torre = 5, rainha = 8, cavalo = 2;
     // Variavel para as opções do switch
     int menu = 4;
 
@@ -21,25 +22,29 @@ int main() {
     //Bispo
     case 1:   
         
-        move_bispo();
+        move_bispo(bispo);
+        printf("\n");
         break;
 
     // Torre
     case 2:
         
-        move_torre();
+        move_torre(torre);
+        printf("\n");
         break;
 
     // Rainha
     case 3:
         
-        move_rainha();
+        move_rainha(rainha);
+        printf("\n");
         break;
     
     // Cavalo
     case 4:
 
-        move_cavalo();
+        move_cavalo(cavalo);
+        printf("\n");
         break;
 
     // Default com print de opção inválida
@@ -53,61 +58,63 @@ int main() {
 }
 
 // Função com loop while para o bispo, iniciando com n movimentos e tendo decremento até zerar o numero de movimentos.
-void move_bispo() {
+void move_bispo(int bispo) {
 
-    int bispo = 5;
-    printf("**O bispo se moveu**\n");
     while (bispo > 0)
     {
-        printf("Cima\n");
-        printf("Direita\n");
-        bispo--;
-    }
-    printf("\n");
-
-}
-
-// Função com loop while para a torre, iniciando com n movimentos e tendo decremento até zerar o numero de movimentos.
-void move_torre() {
-
-    int torre = 5;
-    printf("**A torre se moveu**\n\n");
-    while (torre > 0)
-    {
-        printf("Direita\n");
-        torre--;
-    }
-    printf("\n");
-
-}
-
-// Função com loop while para a rainha, iniciando com n movimentos e tendo decremento até zerar o numero de movimentos.
-void move_rainha() {
-
-    int rainha = 8;
-    printf("**A rainha se moveu**\n\n");
-    while (rainha > 0)
-    {
-        printf("Esquerda\n");
-        rainha--;
-    }
-    printf("\n");
-
-}
-
-// Função com loop for e while para o cavalo, iniciando com n movimentos e tendo decremento até zerar o numero de movimentos.
-void move_cavalo() {
-    int cavalo = 2;
-    printf("**O cavalo se moveu**\n\n");
-    for (int i = 0; i < cavalo; i++)
-    {
-        while (cavalo > 0)
+        if (bispo > 0)
         {
-            printf("Baixo\n");
-            cavalo--;
+            printf("Direita\n");
         }
-
-        printf("Esquerda\n");
+        
+        if (bispo > 0)
+        {
+            printf("Cima\n");
+            bispo--;
+        }
+        
     }
-    printf("\n");
+
+}
+
+// Função recursiva do movimento da torre
+void move_torre(int torre) {
+
+    if (torre > 0)
+    {
+        printf("Direita\n");
+        move_torre(torre - 1);
+    }
+
+}
+
+// Função recursiva com o movimento da rainha
+void move_rainha(int rainha) {
+
+    if (rainha > 0)
+    {
+        printf("Esquerda\n");
+        move_rainha(rainha - 1);
+    }
+
+}
+
+// Função com loop de variavel mutipla para o cavalo com continue e break.
+void move_cavalo(int cavalo) {
+
+    for (int i = 0, j = cavalo; i <= cavalo; i++, j--)
+    {
+        if (i < cavalo)
+        {
+            printf("Cima\n");
+            continue;
+        }
+        
+        if (j == 0)
+        {
+            printf("Direita\n");
+            break;
+        }
+    }
+
 }
