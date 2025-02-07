@@ -3,14 +3,15 @@
 void move_bispo(void);
 void move_torre(void);
 void move_rainha(void);
+void move_cavalo(void);
 
 int main() {
 
     // Variavel para as opções do switch
-    int menu = 3;
+    int menu = 4;
 
     // Printf com o menu do jogo
-    printf("***Escolha uma peça para se mover!***\n1 - Bispo\n2 - Torre\n3 - Rainha\n");
+    printf("***Escolha uma peça para se mover!***\n1 - Bispo\n2 - Torre\n3 - Rainha\n4 - Cavalo\n");
     scanf("%d", &menu);
     printf("\n");
 
@@ -35,6 +36,12 @@ int main() {
         move_rainha();
         break;
     
+    // Cavalo
+    case 4:
+
+        move_cavalo();
+        break;
+
     // Default com print de opção inválida
     default:
 
@@ -86,4 +93,21 @@ void move_rainha() {
     }
     printf("\n");
 
+}
+
+// Função com loop for e while para o cavalo, iniciando com n movimentos e tendo decremento até zerar o numero de movimentos.
+void move_cavalo() {
+    int cavalo = 2;
+    printf("**O cavalo se moveu**\n\n");
+    for (int i = 0; i < cavalo; i++)
+    {
+        while (cavalo > 0)
+        {
+            printf("Baixo\n");
+            cavalo--;
+        }
+
+        printf("Esquerda\n");
+    }
+    printf("\n");
 }
